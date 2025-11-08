@@ -1,0 +1,43 @@
+interface DirectorInterface{
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workDirectorTask(): string;
+}
+
+interface TeacherInterface{
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workTeacherTasks(): string;
+}
+
+class Director implements DirectorInterface{
+    workFromHome(): string {
+        return 'working from home';
+    }
+    getCoffeeBreak(): string {
+        return 'getting a coffee break';
+    }
+    workDirectorTask(): string {
+        return 'Getting to director tasks';
+    }
+
+}
+
+class Teacher implements TeacherInterface{
+    workFromHome(): string {
+        return 'working from Home';
+    }
+    getCoffeeBreak(): string {
+        return 'Getting a coffee break';
+    }
+    workTeacherTasks(): string {
+        return 'Getting to work';
+    }
+}
+function createEmployee(salary:number | string): Director | Teacher {
+    if (typeof salary === 'number' && salary < 500 ){
+        return new Teacher();
+    } else {
+        return new Director();
+    }
+} 
